@@ -1,0 +1,62 @@
+﻿@model IEnumerable<OrderDatabase.Model.Order>
+
+@{
+    ViewBag.Title = "Orders ";
+}
+
+<h2>Orders: </h2>
+<h2> Current and Previous Orders</h2>
+
+@*<p>
+    @Html.ActionLink("Create New", "Create")
+</p>*@
+<table class="table">
+    <tr>
+        @*<th>
+            @Html.DisplayNameFor(model => model.productId)
+        </th>*@
+        <th>
+            @Html.DisplayNameFor(model => model.userId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.price)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.quantity)
+        </th>
+        @*<th>
+            @Html.DisplayNameFor(model => model.Active)
+        </th>*@
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        @*<td>
+            @Html.DisplayFor(modelItem => item.productId)
+        </td>*@
+        <th>
+            @Html.DisplayFor(modelItem => item.userId)
+        </th>
+        <td>
+            @Html.DisplayFor(modelItem => item.name)
+        </td>
+        <td>
+           £@Html.DisplayFor(modelItem => item.price)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.quantity)
+        </td>
+        @*<td>
+            @Html.DisplayFor(modelItem => item.Active)
+        </td>*@
+        <td>
+            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+        </td>
+    </tr>
+}
+
+</table>
